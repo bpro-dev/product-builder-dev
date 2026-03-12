@@ -1,1 +1,250 @@
-/* Add styles here */
+:root {
+  --font-main: system-ui, -apple-system, sans-serif;
+  --primary-color: oklch(0.55 0.15 250);
+  --card-shadow: 0 8px 32px 0 oklch(0 0 0 / 0.1);
+}
+
+/* Light Mode Variables */
+[data-theme='light'] {
+  --bg-color: oklch(0.97 0.01 250);
+  --text-color: oklch(0.2 0.02 250);
+  --glass-bg: oklch(1 0 0 / 0.6);
+  --border-color: oklch(1 0 0 / 0.2);
+  --sub-text-color: oklch(0.5 0.05 250);
+  --history-item-bg: oklch(1 0 0 / 0.4);
+}
+
+/* Dark Mode Variables */
+[data-theme='dark'] {
+  --bg-color: oklch(0.15 0.02 250);
+  --text-color: oklch(0.95 0.01 250);
+  --glass-bg: oklch(0.2 0.05 250 / 0.7);
+  --border-color: oklch(1 0 0 / 0.1);
+  --sub-text-color: oklch(0.7 0.02 250);
+  --history-item-bg: oklch(0.3 0.02 250 / 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, oklch(0.9 0.1 200 / 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, oklch(0.9 0.1 50 / 0.05) 0%, transparent 40%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.container {
+  width: min(100% - 2rem, 600px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  position: relative;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+header p {
+  font-size: 1rem;
+  color: var(--sub-text-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.draw-area {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.balls-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+
+.placeholder {
+  color: var(--sub-text-color);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+}
+
+.draw-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px oklch(0.55 0.15 250 / 0.3);
+}
+
+.draw-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px oklch(0.55 0.15 250 / 0.4);
+}
+
+.draw-btn:active {
+  transform: translateY(0);
+}
+
+.history-area {
+  text-align: left;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+}
+
+.history-area h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--history-item-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.history-balls {
+  display: flex;
+  gap: 4px;
+}
+
+.history-ball {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.empty-msg {
+  color: var(--sub-text-color);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--sub-text-color);
+}
+
+/* Scrollbar styling */
+.history-list::-webkit-scrollbar {
+  width: 4px;
+}
+.history-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.history-list::-webkit-scrollbar-thumb {
+  background: oklch(0.8 0.02 250 / 0.3);
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer components {
+  /* Lotto Ball Colors */
+  .ball-yellow { background-color: oklch(0.85 0.15 90); }
+  .ball-blue { background-color: oklch(0.65 0.15 240); }
+  .ball-red { background-color: oklch(0.65 0.2 30); }
+  .ball-grey { background-color: oklch(0.65 0.02 250); }
+  .ball-green { background-color: oklch(0.75 0.15 150); }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+  .balls-container {
+    gap: 0.5rem;
+  }
+  .theme-toggle-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+}

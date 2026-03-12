@@ -1,14 +1,42 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>행운의 로또 번호 추첨기</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="container">
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="테마 변경">
+      <span class="theme-icon">🌙</span>
+    </button>
+    
+    <header>
+      <h1>행운의 로또 번호 추첨기</h1>
+      <p>오늘의 행운을 확인해보세요!</p>
+    </header>
+
+    <main>
+      <section class="draw-area">
+        <div id="balls-container" class="balls-container">
+          <div class="placeholder">행운을 불러오는 중...</div>
+        </div>
+        <button id="draw-btn" class="draw-btn">번호 추첨하기</button>
+      </section>
+
+      <section class="history-area">
+        <h2>최근 추첨 이력</h2>
+        <ul id="history-list" class="history-list">
+          <li class="empty-msg">아직 추첨 이력이 없습니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 행운의 로또. All rights reserved.</p>
+    </footer>
+  </div>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
