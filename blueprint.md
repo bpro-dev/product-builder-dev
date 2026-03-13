@@ -12,17 +12,17 @@
   - OKLCH 색상: 최신 브라우저 표준을 활용한 생동감 넘치는 색상 체계.
   - 반응형 디자인: 모바일과 데스크톱 모두에서 최적화된 레이아웃.
 
-## 최신 업데이트: 제휴 문의 폼 & 댓글 기능 (Disqus)
+## 최신 업데이트: 제휴 문의, 댓글 기능 & 수익화 (Google AdSense)
 
-사용자가 제휴 관련 문의를 보낼 수 있는 폼과 소통을 위한 댓글 기능을 추가합니다.
+사용자 소통 및 서비스 지속 가능성을 위한 기능을 추가합니다.
 
 ### 구현 계획
 1. **제휴 문의 폼 (Formspree)**: 
    - `index.html` 하단에 `<section class="contact-area">` 추가.
-   - Formspree 엔드포인트(`https://formspree.io/f/mgonyqav`)를 사용하는 `<form>` 구현.
 2. **댓글 기능 (Disqus)**:
    - 문의 폼 하단에 `<section class="comments-area">` 추가.
-   - Disqus 유니버설 코드를 삽입하여 커뮤니티 소통 기능 활성화.
-3. **CSS 디자인**:
-   - 기존의 Glassmorphism 스타일과 일치하도록 섹션별 여백 및 구분선 추가.
-   - 다크 모드/라이트 모드 환경에서 Disqus 테마가 적절히 대응되도록 설정.
+3. **수익화 (Google AdSense)**:
+   - `<head>` 섹션에 AdSense 스크립트 및 계정 인증 메타 태그 삽입.
+   - 루트 디렉토리에 `ads.txt` 파일 생성하여 광고 게시 권한 설정.
+4. **CSS 디자인**:
+   - 기존의 Glassmorphism 스타일 유지 및 섹션별 레이아웃 최적화.
