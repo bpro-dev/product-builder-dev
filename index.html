@@ -31,6 +31,25 @@
           <li class="empty-msg">아직 추첨 이력이 없습니다.</li>
         </ul>
       </section>
+      <section class="contact-area">
+        <h2>제휴 및 문의하기</h2>
+        <form action="https://formspree.io/f/mgonyqav" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">성함/기관명</label>
+            <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+          </div>
+          <div class="form-group">
+            <label for="email">이메일 주소</label>
+            <input type="email" id="email" name="email" required placeholder="example@mail.com">
+          </div>
+          <div class="form-group">
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" required placeholder="제휴 제안 또는 문의 내용을 입력해주세요."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">문의 보내기</button>
+        </form>
+      </section>
+
     </main>
 
     <footer>
