@@ -338,3 +338,10 @@ footer {
   color: var(--sub-text-color);
   text-align: center;
 }
+
+/* Comments Area Styles */
+.comments-area {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
