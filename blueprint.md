@@ -17,8 +17,8 @@
 사용자 분석, 서비스 지속 가능성 및 정책 준수를 위한 기능을 보강하였습니다.
 
 ### 구현 계획
-1. **사용자 분석 (Google Analytics)**:
-   - 모든 HTML 파일 (`index.html`, `privacy.html`)에 Google Analytics (gtag.js) 태그 삽입.
+1. **사용자 분석 (Google Analytics & MS Clarity)**:
+   - 모든 HTML 파일 (`index.html`, `privacy.html`)에 Google Analytics (gtag.js) 및 Microsoft Clarity 태그 삽입.
 2. **수익화 (Google AdSense)**:
    - `<head>` 섹션에 AdSense 스크립트 및 계정 인증 메타 태그 삽입.
    - 루트 디렉토리에 `ads.txt` 파일 생성.
